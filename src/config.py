@@ -10,11 +10,15 @@ initial_cash = 100000
 # 遗传算法参数字典，包含种群大小、突变率、交叉率和迭代代数
 # 这些参数控制遗传算法的行为和性能
 ga_params = {
-        'population_size': 32,
-        'mutation_rate': 0.01,
-        'crossover_rate': 0.8,
-        'generations': 30
-    }
+    'population_size': 32,
+    'mutation_rate': 0.01,
+    'crossover_rate': 0.8,
+    'generations': 30
+}
 
 # 运行遗传算法的次数，用于获取最优解
 num_runs = 1
+
+# 回测起点（新获取的数据）
+# TODO：检查所有文件以统一回测起点，否则重新获取数据
+date = '2020-11-05'

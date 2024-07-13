@@ -36,7 +36,7 @@ python main.py
 
 - `momentum_strategy.py`：定义了`MomentumETFStrategy`类，实现动量ETF轮动策略。
 - `genetic_algorithm.py`：定义了`GeneticAlgorithm`类，实现遗传算法优化策略。
-- `data_loader.py`：包含`load_data`函数，用于加载和缓存CSV数据文件。
+- `data_loader.py`：包含 `load_data` 函数和 `get_data` 函数。`load_data` 函数用于加载和缓存CSV数据文件，如果本地数据文件缺失，`get_data` 函数将被调用来获取数据。
 - `config.py`：包含项目配置参数，如CSV文件列表、初始资金、遗传算法参数等。
 - `init.py`：项目初始化文件，导入主要模块和类。
 - `main.py`：主程序入口，设置参数并启动策略优化过程。
