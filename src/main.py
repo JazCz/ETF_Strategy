@@ -3,6 +3,16 @@ from data_loader import load_data
 from config import stock_csv_files, initial_cash, ga_params, num_runs
 
 
+# 由于要兼容绘图库backtrader_plotting，导致其他库的版本较低，这可能会导致一些库无法引入
+# 如没有绘图需求，请忽略绘图库，并在互相兼容的前提下使用新的版本，backtrader_plotting的依赖包是backtrader、bokeh、jinja2、pandas、matplotlib 和 markdown2
+# TODO: 输出最优解的投资图，与全仓沪深300做对比图
+# TODO：检查所有文件以统一回测起点，否则重新获取数据
+# TODO：为提升运行速率，用C++实现策略类
+# TODO：优化遗传算法，如精英策略，适应度共享，局部搜索
+# TODO: 为每次交易计算手续费
+# TODO: 添加其他的交易指标，如RSI
+# TODO: 用并行处理提高计算速度
+# TODO: 用其他方法解决最优化问题，如XGBoost算法，蚁群算法，模拟退火算法，或强化学习，深度学习等方法
 def run_multiple_times(data_files, cash, ga_params, num_runs):
     """
 
@@ -46,7 +56,6 @@ def main():
     主函数，用于设置遗传算法参数并启动多次运行，最后输出最优结果。
 
     """
-    # 优化方向:精英策略,(避免陷入局部最大)
     # 本质上是经典的非线性优化问题
     best_etf_combination, max_profit = run_multiple_times(stock_csv_files, initial_cash, ga_params, num_runs)
     print(f"Best ETF combination across all runs: {best_etf_combination}")
