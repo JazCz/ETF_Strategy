@@ -4,9 +4,15 @@ from plotting import plot_strategy
 from config import stock_csv_files, initial_cash, ga_params, num_runs
 
 
-# 由于要兼容绘图库backtrader_plotting，导致其他库的版本较低，这可能会导致一些库无法引入
+# 由于要兼容绘图库backtrader_plotting，导致其他
+# 库的版本较低，这可能会导致一些库无法引入
 # 如没有绘图需求，请删去plotting.py及相关代码，并在互相兼容的前提下使用新的版本，backtrader_plotting的依赖包是
 # backtrader、bokeh、jinja2、pandas、matplotlib 和 markdown2
+
+#   TODO: 空仓的问题
+#   TODO: 打印各股的持股天数
+#   TODO: 股价大于30日均线，才进行轮动
+#   TODO: 按每个月的数据进行选组
 
 #   TODO: 添加其他的交易指标，如RSI
 #   TODO: 输出最优解的投资图，与全仓沪深300做对比图
@@ -51,6 +57,11 @@ def run_multiple_times(data_files, cash, ga_params, num_runs):
     # 从所有运行中找到最大利润及其对应的ETF组合
     max_score = max(best_scores)
     best_individual = best_individuals[best_scores.index(max_score)]
+
+    # 打印所有轮次的best_scores数据
+    print("Best scores from all iterations:")
+    for i, score in enumerate(best_scores, start=1):
+        print(f"Iteration {i}: {score}")
 
     return best_individual, max_score
 

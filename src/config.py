@@ -1,8 +1,18 @@
 # 股票CSV文件列表，包含所有用于遗传算法优化的股票ETF数据文件
 # 每个文件名对应一个ETF的数据
-stock_csv_files = ['sh510050.csv',  'sz159915.csv', 'sh588000.csv',
-                   'sh512880.csv', 'sz159813.csv', 'sh512690.csv',  'sz159852.csv', 'sh515880.csv',
-                   'sh512980.csv']
+stock_csv_files = ['sz159985.csv',
+                   'sh513300.csv',
+                   'sh515100.csv',
+                   'sz159920.csv',
+                   'sh513080.csv',
+                   'sz162703.csv',
+                   'sz159866.csv',
+                   'sz159915.csv',
+                   'sh518880.csv',
+                   'sh588000.csv',
+                   'sh510500.csv',
+                   'sz161716.csv',
+                   'sz161005.csv']
 
 # 初始资金，用于遗传算法中策略的起始资金
 initial_cash = 100000
@@ -29,4 +39,4 @@ period = 20
 num = 2
 
 # 手续费
-commission=0.001
+commission=0.0005
