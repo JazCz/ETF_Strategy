@@ -2,6 +2,8 @@ import time
 
 import numpy as np
 import backtrader as bt
+
+from config import commission
 from momentum_strategy import MomentumETFStrategy
 
 
@@ -68,7 +70,7 @@ class GeneticAlgorithm:
         data_index_map = {i: key for i, key in enumerate(data_files)}
         # 计算适应度，即策略的最终投资组合价值
         for idx, individual in enumerate(self.population):
-            cerebro = bt.Cerebro(stdstats=False) # 只关心收益，省去Observer提升速度
+            cerebro = bt.Cerebro(stdstats=False)  # 只关心收益，省去Observer提升速度
 
             selected_data_keys = [data_index_map[i] for i, gene in enumerate(individual) if gene == 1]
 
@@ -76,6 +78,7 @@ class GeneticAlgorithm:
                 cerebro.adddata(data_key)
 
             cerebro.broker.setcash(cash)
+            cerebro.broker.setcommission(commission=commission)
             cerebro.addstrategy(MomentumETFStrategy)
             cerebro.run()
             self.fitness_scores[idx] = cerebro.broker.getvalue()

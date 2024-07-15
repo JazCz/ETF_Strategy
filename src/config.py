@@ -1,7 +1,7 @@
 # 股票CSV文件列表，包含所有用于遗传算法优化的股票ETF数据文件
 # 每个文件名对应一个ETF的数据
-stock_csv_files = ['sh510050.csv', 'sh510300.csv', 'sh510500.csv', 'sh512100.csv', 'sz159915.csv', 'sh588000.csv',
-                   'sh512880.csv', 'sz159813.csv', 'sh512690.csv', 'sh512010.csv', 'sz159852.csv', 'sh515880.csv',
+stock_csv_files = ['sh510050.csv',  'sz159915.csv', 'sh588000.csv',
+                   'sh512880.csv', 'sz159813.csv', 'sh512690.csv',  'sz159852.csv', 'sh515880.csv',
                    'sh512980.csv']
 
 # 初始资金，用于遗传算法中策略的起始资金
@@ -16,7 +16,8 @@ ga_params = {
 }
 
 # 运行遗传算法的次数，用于获取最优解
-num_runs = 1
+# 预估用时 mean(time of each generation) * num_generations * num_runs
+num_runs = 5
 
 # 回测起点（新获取的数据）
 date = '2020-11-05'
@@ -26,3 +27,6 @@ period = 20
 
 # 选择动量前num大的ETF，按照1/num分配仓位
 num = 2
+
+# 手续费
+commission=0.001

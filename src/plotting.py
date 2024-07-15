@@ -1,6 +1,6 @@
 import backtrader as bt
 from momentum_strategy import MomentumETFStrategy
-from config import initial_cash, stock_csv_files
+from config import initial_cash, stock_csv_files, commission
 from data_loader import load_data
 from backtrader_plotting import Bokeh
 from backtrader_plotting.schemes import Tradimo
@@ -18,6 +18,7 @@ def plot_strategy(combination):
         cerebro.adddata(data_key)
 
     cerebro.broker.setcash(initial_cash)
+    cerebro.broker.setcommission(commission=commission)
     cerebro.addstrategy(MomentumETFStrategy)
     cerebro.run()
 
