@@ -1,5 +1,6 @@
 import backtrader as bt
 import datetime
+from config import num, period
 
 
 class MomentumETFStrategy(bt.Strategy):
@@ -21,8 +22,8 @@ class MomentumETFStrategy(bt.Strategy):
     """
     # 定义策略参数
     params = (
-        ('period', 20),  # 动量周期
-        ('num', 2),  # 选择动量前num大的ETF，按照1/num分配仓位
+        ('period', period),  # 动量周期
+        ('num', num),  # 选择动量前num大的ETF，按照1/num分配仓位
         ('trade_period', 0),  # 交易周期
     )
 
@@ -50,7 +51,6 @@ class MomentumETFStrategy(bt.Strategy):
 
         """
         if self.next_trade is None or self.next_trade <= self.datetime.datetime():
-
             momentums = [(data.close[0] / data.open[-self.params.period] - 1, data) for data in self.datas]
             all_negative = all(mom[0] < 0 for mom in momentums)
 

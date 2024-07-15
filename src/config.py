@@ -8,7 +8,6 @@ stock_csv_files = ['sh510050.csv', 'sh510300.csv', 'sh510500.csv', 'sh512100.csv
 initial_cash = 100000
 
 # 遗传算法参数字典，包含种群大小、突变率、交叉率和迭代代数
-# 这些参数控制遗传算法的行为和性能
 ga_params = {
     'population_size': 32,
     'mutation_rate': 0.01,
@@ -21,3 +20,9 @@ num_runs = 1
 
 # 回测起点（新获取的数据）
 date = '2020-11-05'
+
+# 动量周期
+period = 20
+
+# 选择动量前num大的ETF，按照1/num分配仓位
+num = 2

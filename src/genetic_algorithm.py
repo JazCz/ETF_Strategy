@@ -22,6 +22,7 @@ class GeneticAlgorithm:
     - fitness_scores (np.array): 个体的适应度分数数组。
 
     """
+
     def __init__(self, params):
         """
 
@@ -67,7 +68,7 @@ class GeneticAlgorithm:
         data_index_map = {i: key for i, key in enumerate(data_files)}
         # 计算适应度，即策略的最终投资组合价值
         for idx, individual in enumerate(self.population):
-            cerebro = bt.Cerebro()
+            cerebro = bt.Cerebro(stdstats=False) # 只关心收益，省去Observer提升速度
 
             selected_data_keys = [data_index_map[i] for i, gene in enumerate(individual) if gene == 1]
 
