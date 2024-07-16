@@ -10,7 +10,9 @@ from config import stock_csv_files, initial_cash, ga_params, num_runs
 # backtrader、bokeh、jinja2、pandas、matplotlib 和 markdown2
 
 #   TODO: 空仓的问题
-#   TODO: 打印各股的持股天数
+#   TODO: 持仓天数的问题
+#   TODO: 打印各股的贡献度
+#   TODO: 给各个组合写解释
 #   TODO: 股价大于30日均线，才进行轮动
 #   TODO: 按每个月的数据进行选组
 
