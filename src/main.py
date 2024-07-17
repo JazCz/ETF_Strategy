@@ -9,11 +9,11 @@ from config import stock_csv_files, initial_cash, ga_params, num_runs
 # 如没有绘图需求，请删去plotting.py及相关代码，并在互相兼容的前提下使用新的版本，backtrader_plotting的依赖包是
 # backtrader、bokeh、jinja2、pandas、matplotlib 和 markdown2
 
-#   TODO: 空仓的问题
+#   TODO: 间隔空仓的问题（问题出在：原定当天卖出X第二天买入Y，但实际是当天发出卖出X的信号，第二天卖出X，发出买入Y的信号，第三天才买入Y）
 #   TODO: 持仓天数的问题
 #   TODO: 打印各股的贡献度
-#   TODO: 给各个组合写解释
-#   TODO: 股价大于30日均线，才进行轮动
+#   给各个组合写解释 Done
+#   股价大于30日均线，才进行轮动 Done
 #   TODO: 按每个月的数据进行选组
 
 #   TODO: 添加其他的交易指标，如RSI
